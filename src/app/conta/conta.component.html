@@ -1,0 +1,147 @@
+
+<div id="boxConta">
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-sm-12 col-md-12 col-12">
+
+        <h5 class="title-system">
+          Conta bancaria
+
+          <small>
+            selecione a operação desejada e informe o valor.
+          </small>
+        </h5>
+
+      </div>
+
+    </div>
+
+    <div class="row">
+
+
+      <div class="col-sm-12 col-md-12 col-12">
+
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="form-gerencia">
+
+            <div class="row">
+
+                <div class="col-sm-6 col-md-6 col-12">
+
+                    <label >
+
+                      Saque: <input type="radio" name="typeAction"
+                                    ngModel #typeAction="ngModel" class="typeAction" value="0" required>
+
+                      Deposito: <input type="radio" name="typeAction"
+                                       ngModel #typeAction="ngModel" class="typeAction" value="1" required checked="checked">
+
+                    </label>
+
+                </div>
+
+                <div class="col-sm-6 col-md-6 col-12">
+
+                    <label for="value" class="label-input-text" >
+
+                      Valor: <input type="number" class="form-control input-text" name="value"
+                                 ngModel id="value" placeholder="R$" required #value="ngModel">
+
+                    </label>
+
+                    <button class="btn btn-success" [disabled]="!f.valid">
+                      Adicionar
+                      <i class="fa fa-plus"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-sm-12 col-md-12 col-xs-12">
+
+        <h6 *ngIf="conta.length < 1"> Nenhum movimento encontrado na conta</h6>
+
+        <div class="box-table-extrato" *ngIf="conta.length > 0">
+
+          <h6>Extrato bancário </h6>
+
+          <table >
+
+            <thead>
+
+              <tr>
+
+                <th>
+                  <span>Tipo</span>
+                </th>
+
+                <th>
+                  <span>Valor</span>
+                </th>
+
+                <th>
+
+                </th>
+
+              </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr *ngFor="let c of conta;let i = index" [ngClass] = "{'deposito':(c.type === '1'),'saque' : (c.type === '0')}">
+
+                  <td >
+                    <span>{{c.type === '1'? 'Deposito' : 'Saque'}}</span>
+                  </td>
+
+                  <td>
+                    <span>{{c.view_value }}</span>
+                  </td>
+
+                  <td>
+                    <span class="btn btn-danger" (click)="onRemove(i)">
+                      Remover <i class="fa fa-times"></i>
+                    </span>
+                  </td>
+
+                </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+        <div class="row">
+
+          <div class="col-sm-12 col-md-12 col-12">
+
+            <div class="box-total" *ngIf="conta.length > 0">
+
+              <strong>Total em conta:</strong>
+              <span>{{total.view_value}}</span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+

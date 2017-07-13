@@ -1,0 +1,138 @@
+@import '../../_variables.scss';
+#boxConta {
+
+  .title-system {
+
+    font-family: $font-default;
+    font-weight: 500;
+    color: #444;
+    font-style: italic;
+    margin-bottom: 35px;
+
+    small {
+
+      font-family: $font-default;
+      font-weight: 300;
+      display: block;
+
+    }
+
+  }
+
+  .form-gerencia {
+
+    label {
+
+      font-weight: 700;
+      font-family: $font-default;
+
+      &.has-error {
+
+        color: $color-danger;
+
+      }
+
+      &.label-input-text {
+
+        line-height: 38px;
+        input {
+
+          width: 80%;
+          float: right;
+
+          &.ng-invalid {
+
+            &.ng-touched {
+
+              border-color: $color-danger;
+              color: $color-danger;
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+  .box-table-extrato{
+
+    max-height: 340px;
+    overflow: auto;
+    display: inline-block;
+
+    table {
+
+      thead {
+
+        tr {
+
+          th {
+
+            padding: 10px 150px;
+            color: #fff;
+            background-color: $color-green-logo;
+            border-right: 1px solid #fff;
+            font-weight: 600;
+            text-align: left;
+
+          }
+
+        }
+
+      }
+
+      tbody {
+
+        tr {
+
+          td {
+
+            padding-left: 10px;
+
+            .btn {
+
+                margin: 15px;
+                cursor: pointer;
+
+            }
+
+          }
+
+          &.deposito {
+
+            background-color: rgba(65, 175, 65, 0.15);
+            color: #41af41;
+            font-weight: 700;
+
+          }
+
+          &.saque {
+
+            background-color: rgba(175, 65, 89, 0.15);
+            color: #d9534f;
+            font-weight: 700;
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+  .box-total{
+
+      padding: 30px 0;
+      color: #346f88;
+
+  }
+
+
+}

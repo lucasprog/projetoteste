@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+@import '_variables.scss';
+
+span,strong,div,button,p,ul,li,a,em,
+h1,h2,h3,h4,h5,h6,
+.h1,.h2,.h3,.h4,.h5,.h6{
+
+  font-family: $font-default;
+
+}
+
+button,.btn{
+
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+
+}
+
+input,textarea,select,
+.form-control{
+
+  border-radius: 0;
+  border: 1px solid #ccc;
+  box-shadow: none;
+
+}
